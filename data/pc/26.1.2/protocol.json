@@ -7925,7 +7925,11 @@
                     "0x82": "advancements",
                     "0x83": "entity_update_attributes",
                     "0x84": "entity_effect",
-                    "0x86": "tags"
+                    "0x86": "tags",
+                    "0x2b": "initialize_world_border",
+                    "0x7f": "set_ticking_state",
+                    "0x80": "step_tick",
+                    "0x85": "recipe_book_add"
                   }
                 }
               ]
@@ -8044,7 +8048,10 @@
                     "advancements": "packet_advancements",
                     "entity_update_attributes": "packet_entity_update_attributes",
                     "entity_effect": "packet_entity_effect",
-                    "tags": "packet_tags"
+                    "tags": "packet_tags",
+                    "initialize_world_border": "packet_initialize_world_border",
+                    "set_ticking_state": "packet_set_ticking_state",
+                    "step_tick": "packet_step_tick"
                   }
                 }
               ]
