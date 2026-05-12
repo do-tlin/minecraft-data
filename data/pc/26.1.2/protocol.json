@@ -3302,7 +3302,10 @@
                 "mapper",
                 {
                   "type": "varint",
-                  "mappings": {}
+                  "mappings": {
+                    "0x00": "server_info",
+                    "0x01": "ping"
+                  }
                 }
               ]
             },
@@ -3312,7 +3315,10 @@
                 "switch",
                 {
                   "compareTo": "name",
-                  "fields": {}
+                  "fields": {
+                    "server_info": "packet_server_info",
+                    "ping": "packet_ping"
+                  }
                 }
               ]
             }
@@ -3344,7 +3350,10 @@
                 "mapper",
                 {
                   "type": "varint",
-                  "mappings": {}
+                  "mappings": {
+                    "0x00": "ping_start",
+                    "0x01": "ping"
+                  }
                 }
               ]
             },
@@ -3354,7 +3363,10 @@
                 "switch",
                 {
                   "compareTo": "name",
-                  "fields": {}
+                  "fields": {
+                    "ping_start": "packet_ping_start",
+                    "ping": "packet_ping"
+                  }
                 }
               ]
             }
