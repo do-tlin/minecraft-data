@@ -7994,6 +7994,10 @@
                   "count": 3
                 }
               ]
+            },
+            {
+              "name": "checksum",
+              "type": "i8"
             }
           ]
         ],
