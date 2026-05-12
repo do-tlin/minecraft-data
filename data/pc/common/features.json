@@ -903,12 +903,22 @@
   },
   {
     "name": "spawnPositionIsGlobal",
-    "description": "spawn position includes a dimension component",
-    "versions": ["1.21.9", "latest"]
+    "description": "spawn position includes a dimension component (GlobalPos). True for 1.21.9 - 1.21.11. MC 26.1.2 reverted spawn_position to the older flat {location, angle} structure per wiki (https://minecraft.wiki/w/Java_Edition_protocol/Packets), so bounded at 1.21.11.",
+    "versions": ["1.21.9", "1.21.11"]
   },
   {
     "name": "gameRuleUsesResourceLocation",
     "description": "gamerule names use resource location syntax",
     "versions": ["1.21.11", "latest"]
+  },
+  {
+    "name": "entityVelocityIsLpVec3",
+    "description": "entity_velocity / spawn_entity packet.velocity is a nested {x,y,z} object (vec3i16 in older versions, lpVec3 since 1.21.9). Without this flag, mineflayer falls back to reading non-existent flat packet.velocityX/Y/Z fields and bot.entity.velocity becomes NaN — server-applied knockback fails to integrate.",
+    "versions": ["1.8", "latest"]
+  },
+  {
+    "name": "entityVelocityIsInBlocksPerTick",
+    "description": "entity_velocity packet's lpVec3 payload carries blocks/tick directly (no notch-quantization). True since lpVec3 was introduced (1.21.9) through 1.21.11. MC 26.1.2 reverted entity_velocity wire format to vec3i16 (notch-quantized fixed-point) so this flag bounds at 1.21.11 — for 26.1.2 and later, mineflayer falls back to conv.fromNotchVelocity (×1/8000) which is correct for vec3i16. Empirical evidence (2026-05-11): raw lpVec3 value 0.555 → mineflayer wrote 0.0000694 (== 0.555×1/8000) → no bounce — issue only present when flag is FALSE for lpVec3-encoded versions.",
+    "versions": ["1.21.9", "1.21.11"]
   }
 ]
