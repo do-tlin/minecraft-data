@@ -5098,7 +5098,31 @@
             },
             {
               "name": "heightmaps",
-              "type": "anonymousNbt"
+              "type": [
+                "array",
+                {
+                  "countType": "varint",
+                  "type": [
+                    "container",
+                    [
+                      {
+                        "name": "type",
+                        "type": "varint"
+                      },
+                      {
+                        "name": "data",
+                        "type": [
+                          "array",
+                          {
+                            "countType": "varint",
+                            "type": "i64"
+                          }
+                        ]
+                      }
+                    ]
+                  ]
+                }
+              ]
             },
             {
               "name": "chunkData",
@@ -5120,76 +5144,8 @@
               ]
             },
             {
-              "name": "skyLightMask",
-              "type": [
-                "array",
-                {
-                  "countType": "varint",
-                  "type": "i64"
-                }
-              ]
-            },
-            {
-              "name": "blockLightMask",
-              "type": [
-                "array",
-                {
-                  "countType": "varint",
-                  "type": "i64"
-                }
-              ]
-            },
-            {
-              "name": "emptySkyLightMask",
-              "type": [
-                "array",
-                {
-                  "countType": "varint",
-                  "type": "i64"
-                }
-              ]
-            },
-            {
-              "name": "emptyBlockLightMask",
-              "type": [
-                "array",
-                {
-                  "countType": "varint",
-                  "type": "i64"
-                }
-              ]
-            },
-            {
-              "name": "skyLight",
-              "type": [
-                "array",
-                {
-                  "countType": "varint",
-                  "type": [
-                    "array",
-                    {
-                      "countType": "varint",
-                      "type": "u8"
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "name": "blockLight",
-              "type": [
-                "array",
-                {
-                  "countType": "varint",
-                  "type": [
-                    "array",
-                    {
-                      "countType": "varint",
-                      "type": "u8"
-                    }
-                  ]
-                }
-              ]
+              "name": "_lightData",
+              "type": "restBuffer"
             }
           ]
         ],
